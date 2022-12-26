@@ -1,14 +1,13 @@
 import { Header } from './components/Header'
-import { Post } from './components/Post'
+import { Post, PostProps } from './components/Post'
 import { Sidebar } from './components/Sidebar'
 
 import styles from './App.module.css'
 
 import './global.css'
 
-const posts = [
+const posts: PostProps[] = [
   {
-    id: 1,
     author: {
       avatarUrl: 'https://github.com/StephaniEngell.png',
       name: 'Stephani Engel',
@@ -27,7 +26,6 @@ const posts = [
   },
 
   {
-    id: 2,
     author: {
       avatarUrl: 'https://github.com/RafaelYokoyama.png',
       name: 'Rafael Yokoyama',
@@ -55,10 +53,10 @@ export function App() {
         <Sidebar />
 
         <main>
-          {posts.map((post) => {
+          {posts.map((post: PostProps, index) => {
             return (
               <Post
-                key={post.id}
+                key={index}
                 author={post.author}
                 content={post.content}
                 publishedAt={post.publishedAt}
